@@ -13,7 +13,7 @@
           <PropertyValue z:Id="i4">
             <PropertyName>Value</PropertyName>
             <_dataType>Expression</_dataType>
-            <_expression>Directory.GetFiles(Path.Combine(in_dict_paths["InFolder"]))</_expression>
+            <_expression>Directory.GetFiles(in_dict_paths["InFolder"])</_expression>
             <_value i:nil="true" />
             <_xpathSettings xmlns:d7p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
           </PropertyValue>
@@ -61,7 +61,7 @@
                         <PropertyName>IgnoreEmptyRowsColumsAtStart</PropertyName>
                         <_dataType>Value</_dataType>
                         <_expression i:nil="true" />
-                        <_value xmlns:d13p1="http://www.w3.org/2001/XMLSchema" i:type="d13p1:boolean">true</_value>
+                        <_value xmlns:d13p1="http://www.w3.org/2001/XMLSchema" i:type="d13p1:boolean">false</_value>
                         <_xpathSettings xmlns:d13p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
                       </PropertyValue>
                       <PropertyValue z:Id="i13">
@@ -172,7 +172,7 @@
                       <PropertyValue z:Id="i25">
                         <PropertyName>To</PropertyName>
                         <_dataType>Expression</_dataType>
-                        <_expression>int_header</_expression>
+                        <_expression>int_header - 1</_expression>
                         <_value i:nil="true" />
                         <_xpathSettings xmlns:d13p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
                       </PropertyValue>
@@ -248,24 +248,50 @@
                     <_activityFullName>Activities.BaseCollections.DT.DeleteRow</_activityFullName>
                   </AbstractStep>
                   <AbstractStep z:Id="i33" i:type="ExecutedStep">
+                    <Childs />
+                    <Id>bf7f6aff-b960-4a05-83b9-508187dc9374</Id>
+                    <Parent z:Ref="i8" />
+                    <PropertyValues>
+                      <PropertyValue z:Id="i34">
+                        <PropertyName>Value</PropertyName>
+                        <_dataType>Expression</_dataType>
+                        <_expression>dt_table.Columns.Count - 1</_expression>
+                        <_value i:nil="true" />
+                        <_xpathSettings xmlns:d13p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                      </PropertyValue>
+                      <PropertyValue z:Id="i35">
+                        <PropertyName>To</PropertyName>
+                        <_dataType>Expression</_dataType>
+                        <_expression>i</_expression>
+                        <_value i:nil="true" />
+                        <_xpathSettings xmlns:d13p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                      </PropertyValue>
+                    </PropertyValues>
+                    <SelectedOptionId i:nil="true" />
+                    <EnableStatus>true</EnableStatus>
+                    <ExceptionHandlingMode>Default</ExceptionHandlingMode>
+                    <RetryCount>-1</RetryCount>
+                    <Text></Text>
+                    <_activityFullName>BR.Core.Base.Assign</_activityFullName>
+                  </AbstractStep>
+                  <AbstractStep z:Id="i36" i:type="ExecutedStep">
                     <Childs>
-                      <AbstractStep z:Id="i34" i:type="ExecutedStep">
+                      <AbstractStep z:Id="i37" i:type="ExecutedStep">
                         <Childs />
-                        <Id>515dcce8-dacd-44b3-94b8-ed89fc0184ce</Id>
-                        <Parent z:Ref="i33" />
+                        <Id>842f4767-183c-4c84-8308-0991db095645</Id>
+                        <Parent z:Ref="i36" />
                         <PropertyValues>
-                          <PropertyValue z:Id="i35">
+                          <PropertyValue z:Id="i38">
                             <PropertyName>Value</PropertyName>
                             <_dataType>Expression</_dataType>
-                            <_expression>dt_table.AsEnumerable()
-    .All(dr =&gt; string.IsNullOrEmpty(dr[i].ToString()))</_expression>
+                            <_expression>dt_table.Rows[0][i].ToString().Contains("NULL")</_expression>
                             <_value i:nil="true" />
                             <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
                           </PropertyValue>
-                          <PropertyValue z:Id="i36">
+                          <PropertyValue z:Id="i39">
                             <PropertyName>To</PropertyName>
                             <_dataType>Expression</_dataType>
-                            <_expression>bool_isColumnEmpty</_expression>
+                            <_expression>bool_isEmpty</_expression>
                             <_value i:nil="true" />
                             <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
                           </PropertyValue>
@@ -274,40 +300,40 @@
                         <EnableStatus>true</EnableStatus>
                         <ExceptionHandlingMode>Default</ExceptionHandlingMode>
                         <RetryCount>-1</RetryCount>
-                        <Text>Пустая ли это колонка</Text>
+                        <Text></Text>
                         <_activityFullName>BR.Core.Base.Assign</_activityFullName>
                       </AbstractStep>
-                      <AbstractStep z:Id="i37" i:type="ExecutedStep">
+                      <AbstractStep z:Id="i40" i:type="ExecutedStep">
                         <Childs>
-                          <AbstractStep z:Id="i38" i:type="ExecutedStep">
+                          <AbstractStep z:Id="i41" i:type="ExecutedStep">
                             <Childs>
-                              <AbstractStep z:Id="i39" i:type="ExecutedStep">
+                              <AbstractStep z:Id="i42" i:type="ExecutedStep">
                                 <Childs />
                                 <Id>b14b76e1-c220-400c-806b-281b1678b068</Id>
-                                <Parent z:Ref="i38" />
+                                <Parent z:Ref="i41" />
                                 <PropertyValues>
-                                  <PropertyValue z:Id="i40">
+                                  <PropertyValue z:Id="i43">
                                     <PropertyName>ColumnIndex</PropertyName>
                                     <_dataType>Expression</_dataType>
                                     <_expression>i</_expression>
                                     <_value i:nil="true" />
                                     <_xpathSettings xmlns:d19p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
                                   </PropertyValue>
-                                  <PropertyValue z:Id="i41">
+                                  <PropertyValue z:Id="i44">
                                     <PropertyName>ColumnName</PropertyName>
-                                    <_dataType>Value</_dataType>
-                                    <_expression></_expression>
+                                    <_dataType>Expression</_dataType>
+                                    <_expression>dc_column.ColumnName</_expression>
                                     <_value i:nil="true" />
                                     <_xpathSettings xmlns:d19p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
                                   </PropertyValue>
-                                  <PropertyValue z:Id="i42">
+                                  <PropertyValue z:Id="i45">
                                     <PropertyName>ColumnRef</PropertyName>
                                     <_dataType>Value</_dataType>
                                     <_expression></_expression>
                                     <_value i:nil="true" />
                                     <_xpathSettings xmlns:d19p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
                                   </PropertyValue>
-                                  <PropertyValue z:Id="i43">
+                                  <PropertyValue z:Id="i46">
                                     <PropertyName>BaseDataTable</PropertyName>
                                     <_dataType>Expression</_dataType>
                                     <_expression>dt_table</_expression>
@@ -323,8 +349,8 @@
                                 <_activityFullName>Activities.BaseCollections.DataTable.DeleteColumn</_activityFullName>
                               </AbstractStep>
                             </Childs>
-                            <Id>c3eb83c3-0a78-4802-8cda-47c5a7d83c01</Id>
-                            <Parent z:Ref="i37" />
+                            <Id>224c19da-41d0-4353-8312-858ddd0de879</Id>
+                            <Parent z:Ref="i40" />
                             <PropertyValues />
                             <SelectedOptionId i:nil="true" />
                             <EnableStatus>true</EnableStatus>
@@ -333,10 +359,10 @@
                             <Text></Text>
                             <_activityFullName>BR.Core.Base.IfTrue</_activityFullName>
                           </AbstractStep>
-                          <AbstractStep z:Id="i44" i:type="ExecutedStep">
+                          <AbstractStep z:Id="i47" i:type="ExecutedStep">
                             <Childs />
-                            <Id>b8bbbf1e-1199-4a12-b1a7-95a3cb59cb2e</Id>
-                            <Parent z:Ref="i37" />
+                            <Id>04dfe7df-15ca-4ce8-b913-e540e679c3a8</Id>
+                            <Parent z:Ref="i40" />
                             <PropertyValues />
                             <SelectedOptionId i:nil="true" />
                             <EnableStatus>true</EnableStatus>
@@ -346,13 +372,13 @@
                             <_activityFullName>BR.Core.Base.IfFalse</_activityFullName>
                           </AbstractStep>
                         </Childs>
-                        <Id>9839af69-2407-4b56-8d34-cf84ac2e8f16</Id>
-                        <Parent z:Ref="i33" />
+                        <Id>d1c34315-fa11-4376-ab6e-9711379551c4</Id>
+                        <Parent z:Ref="i36" />
                         <PropertyValues>
-                          <PropertyValue z:Id="i45">
+                          <PropertyValue z:Id="i48">
                             <PropertyName>Condition</PropertyName>
                             <_dataType>Expression</_dataType>
-                            <_expression>bool_isColumnEmpty</_expression>
+                            <_expression>bool_isEmpty</_expression>
                             <_value i:nil="true" />
                             <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
                           </PropertyValue>
@@ -364,28 +390,48 @@
                         <Text></Text>
                         <_activityFullName>BR.Core.Base.If</_activityFullName>
                       </AbstractStep>
+                      <AbstractStep z:Id="i49" i:type="ExecutedStep">
+                        <Childs />
+                        <Id>053c3e3a-8bd8-4b4a-833a-441d3c58ef33</Id>
+                        <Parent z:Ref="i36" />
+                        <PropertyValues>
+                          <PropertyValue z:Id="i50">
+                            <PropertyName>Value</PropertyName>
+                            <_dataType>Expression</_dataType>
+                            <_expression>i - 1</_expression>
+                            <_value i:nil="true" />
+                            <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                          </PropertyValue>
+                          <PropertyValue z:Id="i51">
+                            <PropertyName>To</PropertyName>
+                            <_dataType>Expression</_dataType>
+                            <_expression>i</_expression>
+                            <_value i:nil="true" />
+                            <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                          </PropertyValue>
+                        </PropertyValues>
+                        <SelectedOptionId i:nil="true" />
+                        <EnableStatus>true</EnableStatus>
+                        <ExceptionHandlingMode>Default</ExceptionHandlingMode>
+                        <RetryCount>-1</RetryCount>
+                        <Text></Text>
+                        <_activityFullName>BR.Core.Base.Assign</_activityFullName>
+                      </AbstractStep>
                     </Childs>
-                    <Id>420ac9fb-a642-455f-b0be-96e2732c8e20</Id>
+                    <Id>80ab92dc-6372-41b3-b3f6-f953ead94c64</Id>
                     <Parent z:Ref="i8" />
                     <PropertyValues>
-                      <PropertyValue z:Id="i46">
-                        <PropertyName>From</PropertyName>
-                        <_dataType>Value</_dataType>
-                        <_expression i:nil="true" />
-                        <_value xmlns:d13p1="http://www.w3.org/2001/XMLSchema" i:type="d13p1:int">0</_value>
-                        <_xpathSettings xmlns:d13p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
-                      </PropertyValue>
-                      <PropertyValue z:Id="i47">
-                        <PropertyName>To</PropertyName>
+                      <PropertyValue z:Id="i52">
+                        <PropertyName>Condition</PropertyName>
                         <_dataType>Expression</_dataType>
-                        <_expression>dt_table.Columns.Count - 1</_expression>
+                        <_expression>i &gt; 0</_expression>
                         <_value i:nil="true" />
                         <_xpathSettings xmlns:d13p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
                       </PropertyValue>
-                      <PropertyValue z:Id="i48">
-                        <PropertyName>Index</PropertyName>
+                      <PropertyValue z:Id="i53">
+                        <PropertyName>Counter</PropertyName>
                         <_dataType>Expression</_dataType>
-                        <_expression>i</_expression>
+                        <_expression></_expression>
                         <_value i:nil="true" />
                         <_xpathSettings xmlns:d13p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
                       </PropertyValue>
@@ -395,49 +441,49 @@
                     <ExceptionHandlingMode>Default</ExceptionHandlingMode>
                     <RetryCount>-1</RetryCount>
                     <Text></Text>
-                    <_activityFullName>BR.Core.Base.LoopFor</_activityFullName>
+                    <_activityFullName>BR.Core.Base.LoopWhile</_activityFullName>
                   </AbstractStep>
-                  <AbstractStep z:Id="i49" i:type="ExecutedStep">
+                  <AbstractStep z:Id="i54" i:type="ExecutedStep">
                     <Childs />
                     <Id>21ae8b23-82df-4310-8309-cb7d32781556</Id>
                     <Parent z:Ref="i8" />
                     <PropertyValues>
-                      <PropertyValue z:Id="i50">
+                      <PropertyValue z:Id="i55">
                         <PropertyName>StartingCell</PropertyName>
                         <_dataType>Value</_dataType>
                         <_expression i:nil="true" />
                         <_value xmlns:d13p1="http://www.w3.org/2001/XMLSchema" i:type="d13p1:string">A1</_value>
                         <_xpathSettings xmlns:d13p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
                       </PropertyValue>
-                      <PropertyValue z:Id="i51">
+                      <PropertyValue z:Id="i56">
                         <PropertyName>DataTable</PropertyName>
                         <_dataType>Expression</_dataType>
                         <_expression>dt_table</_expression>
                         <_value i:nil="true" />
                         <_xpathSettings xmlns:d13p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
                       </PropertyValue>
-                      <PropertyValue z:Id="i52">
+                      <PropertyValue z:Id="i57">
                         <PropertyName>AddHeaders</PropertyName>
                         <_dataType>Value</_dataType>
                         <_expression i:nil="true" />
-                        <_value xmlns:d13p1="http://www.w3.org/2001/XMLSchema" i:type="d13p1:boolean">true</_value>
+                        <_value xmlns:d13p1="http://www.w3.org/2001/XMLSchema" i:type="d13p1:boolean">false</_value>
                         <_xpathSettings xmlns:d13p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
                       </PropertyValue>
-                      <PropertyValue z:Id="i53">
+                      <PropertyValue z:Id="i58">
                         <PropertyName>ConsiderDataType</PropertyName>
                         <_dataType>Value</_dataType>
                         <_expression i:nil="true" />
                         <_value xmlns:d13p1="http://www.w3.org/2001/XMLSchema" i:type="d13p1:boolean">false</_value>
                         <_xpathSettings xmlns:d13p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
                       </PropertyValue>
-                      <PropertyValue z:Id="i54">
+                      <PropertyValue z:Id="i59">
                         <PropertyName>SheetName</PropertyName>
                         <_dataType>Expression</_dataType>
                         <_expression>"TDSheet"</_expression>
                         <_value i:nil="true" />
                         <_xpathSettings xmlns:d13p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
                       </PropertyValue>
-                      <PropertyValue z:Id="i55">
+                      <PropertyValue z:Id="i60">
                         <PropertyName>FileName</PropertyName>
                         <_dataType>Expression</_dataType>
                         <_expression>Path.Combine(Environment.CurrentDirectory, in_dict_paths["TempFolder"], str_path.Split(@"\").Last())</_expression>
@@ -463,7 +509,7 @@
                 <Text></Text>
                 <_activityFullName>BR.Core.Base.IfTrue</_activityFullName>
               </AbstractStep>
-              <AbstractStep z:Id="i56" i:type="ExecutedStep">
+              <AbstractStep z:Id="i61" i:type="ExecutedStep">
                 <Childs />
                 <Id>75740402-5eaa-465c-b9b0-3e0dd8959434</Id>
                 <Parent z:Ref="i7" />
@@ -479,7 +525,7 @@
             <Id>fc70ac7d-4494-43db-97c0-85935b4cd161</Id>
             <Parent z:Ref="i6" />
             <PropertyValues>
-              <PropertyValue z:Id="i57">
+              <PropertyValue z:Id="i62">
                 <PropertyName>Condition</PropertyName>
                 <_dataType>Expression</_dataType>
                 <_expression>Regex.IsMatch(str_path.ToString().Split(@"\").Last(), @"^Слушатели\d+\.xlsx$")</_expression>
@@ -498,21 +544,21 @@
         <Id>ba8f21bc-2e45-459a-9669-7bf17389454a</Id>
         <Parent z:Ref="i2" />
         <PropertyValues>
-          <PropertyValue z:Id="i58">
+          <PropertyValue z:Id="i63">
             <PropertyName>Collection</PropertyName>
             <_dataType>Expression</_dataType>
             <_expression>list_filesFromIn</_expression>
             <_value i:nil="true" />
             <_xpathSettings xmlns:d7p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
           </PropertyValue>
-          <PropertyValue z:Id="i59">
+          <PropertyValue z:Id="i64">
             <PropertyName>Iterator</PropertyName>
             <_dataType>Expression</_dataType>
             <_expression>str_path</_expression>
             <_value i:nil="true" />
             <_xpathSettings xmlns:d7p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
           </PropertyValue>
-          <PropertyValue z:Id="i60">
+          <PropertyValue z:Id="i65">
             <PropertyName>Counter</PropertyName>
             <_dataType>Expression</_dataType>
             <_expression></_expression>
@@ -543,7 +589,7 @@
     <d2p1:string>System.Text.RegularExpressions</d2p1:string>
   </Namespaces>
   <Params>
-    <Parameter z:Id="i61">
+    <Parameter z:Id="i66">
       <DefaultValueExpression></DefaultValueExpression>
       <Description></Description>
       <Name>in_dict_paths</Name>
