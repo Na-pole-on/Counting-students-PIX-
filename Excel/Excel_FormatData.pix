@@ -29,7 +29,7 @@
         <EnableStatus>true</EnableStatus>
         <ExceptionHandlingMode>Default</ExceptionHandlingMode>
         <RetryCount>-1</RetryCount>
-        <Text></Text>
+        <Text>Получение файлов из папки IN</Text>
         <_activityFullName>BR.Core.Base.Assign</_activityFullName>
       </AbstractStep>
       <AbstractStep z:Id="i6" i:type="ExecutedStep">
@@ -126,7 +126,7 @@
                     <EnableStatus>true</EnableStatus>
                     <ExceptionHandlingMode>Default</ExceptionHandlingMode>
                     <RetryCount>-1</RetryCount>
-                    <Text></Text>
+                    <Text>Поиск начала таблицы</Text>
                     <_activityFullName>BR.Core.Base.Assign</_activityFullName>
                   </AbstractStep>
                   <AbstractStep z:Id="i20" i:type="ExecutedStep">
@@ -155,7 +155,7 @@
                         <EnableStatus>true</EnableStatus>
                         <ExceptionHandlingMode>Default</ExceptionHandlingMode>
                         <RetryCount>-1</RetryCount>
-                        <Text></Text>
+                        <Text>Удаляем строки шапки</Text>
                         <_activityFullName>Activities.BaseCollections.DT.DeleteRow</_activityFullName>
                       </AbstractStep>
                     </Childs>
@@ -217,7 +217,7 @@
                     <EnableStatus>true</EnableStatus>
                     <ExceptionHandlingMode>Default</ExceptionHandlingMode>
                     <RetryCount>-1</RetryCount>
-                    <Text></Text>
+                    <Text>Поиск пустрой строки</Text>
                     <_activityFullName>BR.Core.Base.Assign</_activityFullName>
                   </AbstractStep>
                   <AbstractStep z:Id="i30" i:type="ExecutedStep">
@@ -244,7 +244,7 @@
                     <EnableStatus>true</EnableStatus>
                     <ExceptionHandlingMode>Default</ExceptionHandlingMode>
                     <RetryCount>-1</RetryCount>
-                    <Text></Text>
+                    <Text>Удаление пустой строки</Text>
                     <_activityFullName>Activities.BaseCollections.DT.DeleteRow</_activityFullName>
                   </AbstractStep>
                   <AbstractStep z:Id="i33" i:type="ExecutedStep">
@@ -274,7 +274,7 @@
                         <EnableStatus>true</EnableStatus>
                         <ExceptionHandlingMode>Default</ExceptionHandlingMode>
                         <RetryCount>-1</RetryCount>
-                        <Text></Text>
+                        <Text>Пустая ли это колонка</Text>
                         <_activityFullName>BR.Core.Base.Assign</_activityFullName>
                       </AbstractStep>
                       <AbstractStep z:Id="i37" i:type="ExecutedStep">
@@ -319,7 +319,7 @@
                                 <EnableStatus>true</EnableStatus>
                                 <ExceptionHandlingMode>Default</ExceptionHandlingMode>
                                 <RetryCount>-1</RetryCount>
-                                <Text></Text>
+                                <Text>Удаление пустой колонки</Text>
                                 <_activityFullName>Activities.BaseCollections.DataTable.DeleteColumn</_activityFullName>
                               </AbstractStep>
                             </Childs>
@@ -449,7 +449,7 @@
                     <EnableStatus>true</EnableStatus>
                     <ExceptionHandlingMode>Default</ExceptionHandlingMode>
                     <RetryCount>-1</RetryCount>
-                    <Text></Text>
+                    <Text>записываем данные в TEMP</Text>
                     <_activityFullName>Activities.Office.Excel.WriteRange</_activityFullName>
                   </AbstractStep>
                 </Childs>

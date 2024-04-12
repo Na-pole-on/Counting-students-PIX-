@@ -29,7 +29,7 @@
         <EnableStatus>true</EnableStatus>
         <ExceptionHandlingMode>Default</ExceptionHandlingMode>
         <RetryCount>-1</RetryCount>
-        <Text></Text>
+        <Text>Год</Text>
         <_activityFullName>BR.Core.Base.Assign</_activityFullName>
       </AbstractStep>
       <AbstractStep z:Id="i6" i:type="ExecutedStep">
@@ -56,7 +56,7 @@
         <EnableStatus>true</EnableStatus>
         <ExceptionHandlingMode>Default</ExceptionHandlingMode>
         <RetryCount>-1</RetryCount>
-        <Text></Text>
+        <Text>Получение всех файлов в TEMP</Text>
         <_activityFullName>BR.Core.Base.Assign</_activityFullName>
       </AbstractStep>
       <AbstractStep z:Id="i9" i:type="ExecutedStep">
@@ -163,7 +163,7 @@
             <EnableStatus>true</EnableStatus>
             <ExceptionHandlingMode>Default</ExceptionHandlingMode>
             <RetryCount>-1</RetryCount>
-            <Text></Text>
+            <Text>Фильтруем Дата начала потока по году</Text>
             <_activityFullName>Activities.BaseCollections.DataTable.FilterDataTable</_activityFullName>
           </AbstractStep>
           <AbstractStep z:Id="i23" i:type="ExecutedStep">
@@ -194,7 +194,7 @@
                     <EnableStatus>true</EnableStatus>
                     <ExceptionHandlingMode>Default</ExceptionHandlingMode>
                     <RetryCount>-1</RetryCount>
-                    <Text></Text>
+                    <Text>При первой итерации присвоение</Text>
                     <_activityFullName>BR.Core.Base.Assign</_activityFullName>
                   </AbstractStep>
                 </Childs>
@@ -248,7 +248,7 @@
                     <EnableStatus>true</EnableStatus>
                     <ExceptionHandlingMode>Default</ExceptionHandlingMode>
                     <RetryCount>-1</RetryCount>
-                    <Text></Text>
+                    <Text>Объединение</Text>
                     <_activityFullName>Activities.BaseCollections.DT.MergeTables</_activityFullName>
                   </AbstractStep>
                 </Childs>

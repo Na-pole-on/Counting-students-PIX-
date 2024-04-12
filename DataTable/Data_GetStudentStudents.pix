@@ -18,8 +18,15 @@
                     <PropertyName>Value</PropertyName>
                     <_dataType>Expression</_dataType>
                     <_expression>in_dt_table.AsEnumerable()
-    .OrderByDescending(row =&gt; DateTime.ParseExact(Regex.Match(row["Ссылка на приказ"].ToString(), @"\d{2}\.\d{2}\.\d{4}").Value, "dd.MM.yyyy", CultureInfo.InvariantCulture))
-    .GroupBy(row =&gt; row.Field&lt;string&gt;("Программа.Кодификатор").Trim() + row.Field&lt;string&gt;("Поток").Trim() + row.Field&lt;string&gt;("Слушатель.User id").Trim() + row.Field&lt;string&gt;("Юр. Лицо").Trim() + row.Field&lt;string&gt;("Группа SF.Артикул").Trim())
+    .OrderByDescending(row =&gt; DateTime.ParseExact(Regex.Match(row["Ссылка на приказ"].ToString(), 
+                                                  @"\d{2}\.\d{2}\.\d{4}").Value, 
+                                                  "dd.MM.yyyy", 
+                                                  CultureInfo.InvariantCulture))
+    .GroupBy(row =&gt; row.Field&lt;string&gt;("Программа.Кодификатор").Trim() + 
+                    row.Field&lt;string&gt;("Поток").Trim() + 
+                    row.Field&lt;string&gt;("Слушатель.User id").Trim() + 
+                    row.Field&lt;string&gt;("Юр. Лицо").Trim() + 
+                    row.Field&lt;string&gt;("Группа SF.Артикул").Trim())
     .Select(row =&gt; row.First())
     .Where(row =&gt; row.Field&lt;string&gt;("Итого") == "1")
     .CopyToDataTable()</_expression>
@@ -38,7 +45,7 @@
                 <EnableStatus>true</EnableStatus>
                 <ExceptionHandlingMode>Default</ExceptionHandlingMode>
                 <RetryCount>-1</RetryCount>
-                <Text></Text>
+                <Text>Получение учащихся студентов</Text>
                 <_activityFullName>BR.Core.Base.Assign</_activityFullName>
               </AbstractStep>
               <AbstractStep z:Id="i8" i:type="ExecutedStep">
@@ -66,7 +73,7 @@
                 <EnableStatus>true</EnableStatus>
                 <ExceptionHandlingMode>Default</ExceptionHandlingMode>
                 <RetryCount>-1</RetryCount>
-                <Text></Text>
+                <Text>Фильтруем конечную таблицу</Text>
                 <_activityFullName>BR.Core.Base.Assign</_activityFullName>
               </AbstractStep>
               <AbstractStep z:Id="i11" i:type="ExecutedStep">
@@ -121,7 +128,7 @@
                 <EnableStatus>true</EnableStatus>
                 <ExceptionHandlingMode>Default</ExceptionHandlingMode>
                 <RetryCount>-1</RetryCount>
-                <Text></Text>
+                <Text>Записываем данные в файл в Result</Text>
                 <_activityFullName>Activities.Office.Excel.WriteRange</_activityFullName>
               </AbstractStep>
             </Childs>
